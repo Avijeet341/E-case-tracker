@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "734044544239",
+    "project_id": "e-case-tracker",
+    "storage_bucket": "e-case-tracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734044544239:android:9ca16ced68e13a22308f1a",
+        "android_client_info": {
+          "package_name": "com.legallegends.e_casetracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4UJV246k0H87anwEQPE6OBVljXch0vHY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
