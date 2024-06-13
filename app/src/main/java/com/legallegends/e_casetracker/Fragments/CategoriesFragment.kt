@@ -1,59 +1,48 @@
 package com.legallegends.e_casetracker
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.legallegends.e_casetracker.Adapters.CategoriesRecyclerViewAdapter
+import com.legallegends.e_casetracker.Adapters.CategoriesRecyclerViewModel
+import com.legallegends.e_casetracker.databinding.FragmentCategoriesBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CategoriesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class CategoriesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var CategoriesBinding:FragmentCategoriesBinding
 
+    private val rvList=ArrayList<CategoriesRecyclerViewModel>()
+    private lateinit var CategoriesRvAdapter:CategoriesRecyclerViewAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_categories, container, false)
+        CategoriesBinding= FragmentCategoriesBinding.inflate(inflater,container,false)
+
+        rvList.add(CategoriesRecyclerViewModel(R.drawable.civil,"Civil"))
+        rvList.add(CategoriesRecyclerViewModel(R.drawable.criminal2,"Criminal"))
+        rvList.add(CategoriesRecyclerViewModel(R.drawable.contract,"Contract"))
+        rvList.add(CategoriesRecyclerViewModel(R.drawable.juvenile,"Juvenile"))
+        rvList.add(CategoriesRecyclerViewModel(R.drawable.appeal,"Appeal"))
+
+
+        CategoriesRvAdapter= CategoriesRecyclerViewAdapter()
+        CategoriesBinding.CategoriesRv.adapter = CategoriesRvAdapter
+        CategoriesRvAdapter.submitList(rvList)
+
+        return  CategoriesBinding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CategoriesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CategoriesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+    companion object {}
 }

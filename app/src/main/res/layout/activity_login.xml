@@ -32,9 +32,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
 
-            app:shapeAppearanceOverlay="@style/AppLogo"
-            app:strokeColor="#00ecbc"
-            app:strokeWidth="4dp" />
+            app:shapeAppearanceOverlay="@style/AppLogo" />
 
         <TextView
             android:id="@+id/textView"
@@ -177,6 +175,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif"
+            android:padding="5dp"
             android:text="@string/account"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -190,10 +189,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="20dp"
             android:fontFamily="@font/lato_regular"
             android:text="@string/forgot_password"
             android:textColor="@color/black"
             android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
